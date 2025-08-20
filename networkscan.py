@@ -8,6 +8,7 @@ def scan_port(target_ip, port):
         # Create a new socket (AF_INET for IPv4, SOCK_STREAM for TCP)
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.settimeout(1) # Set a timeout of 1 second
+        
 
         # Attempt to connect
         result = s.connect_ex((target_ip, port)) # connect_ex returns an error code
@@ -16,7 +17,7 @@ def scan_port(target_ip, port):
             print(f"Port {port}: Open")
       
         else:
-             
+            print(f"Port {port}: Closed")
             pass 
         s.close() # Close socket
 
